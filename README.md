@@ -22,20 +22,26 @@ The application also includes a "Blockchain Verified" feature, suggesting that t
 The application loads product and supply chain data from the `data.js` file. The `app.js` file then processes this data to dynamically generate the timeline and map markers. 
 The user can interact with the timeline and map to view details about each checkpoint.
 
-''  
+ 
+    
     A[index.html] -- "Loads" --> B(style.css);
     A -- "Loads" --> C(app.js);
     A -- "Loads" --> D(data.js);
     C -- "Uses data from" --> D;
     C -- "Manipulates" --> A;
     C -- "Uses" --> E(Leaflet.js); 
-  ''
+
 
 
 ##  Key Features
+
 **Interactive Map**: A dynamic map interface powered by Leaflet.js to visually trace the path of a delivery.
+
 **Detailed Timeline**: A chronological view of all logistics events, from order placement to final delivery, with associated timestamps.
+
 **Location Insights**: Click on any stop on the map or timeline to view detailed information about that location.
+
 **Product Information**: Display relevant product details, such as order number, item name, and shipment status, directly within the tracking view.
+
 **Responsive Design**: A seamless and optimized experience across all devices, from desktop to mobile.
 
