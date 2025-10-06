@@ -1,0 +1,732 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --font-primary: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --bg-primary: #0a0a0a;
+    --bg-secondary: #1a1a1a;
+    --bg-card: #2a2a2a;
+    --bg-hover: #3a3a3a;
+    --accent-blue: #0071ce;
+    --accent-green: #00d084;
+    --accent-yellow: #ffc220;
+    --text-primary: #ffffff;
+    --text-secondary: #b0b0b0;
+    --text-muted: #808080;
+    --border: #404040;
+    --shadow: rgba(0, 0, 0, 0.3);
+}
+
+body {
+    font-family: var(--font-primary);
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* Header Styles */
+.header {
+    background-color: var(--bg-secondary);
+    border-bottom: 2px solid var(--border);
+    padding: 1rem 1.5rem;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header-content {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-section {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.walmart-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: var(--accent-yellow);
+    border-radius: 50%;
+    box-shadow: 0 2px 8px rgba(255, 194, 32, 0.3);
+}
+
+.brand-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--accent-blue);
+}
+
+.search-container {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+}
+
+#productId {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border);
+    color: var(--text-primary);
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+    font-size: 0.9rem;
+    width: 300px;
+    font-family: var(--font-primary);
+}
+
+#productId:focus {
+    outline: none;
+    border-color: var(--accent-blue);
+    box-shadow: 0 0 0 2px rgba(0, 113, 206, 0.2);
+}
+
+#trackBtn {
+    background-color: var(--accent-blue);
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: var(--font-primary);
+}
+
+#trackBtn:hover {
+    background-color: #005bb5;
+    transform: translateY(-1px);
+}
+
+/* Main Container */
+.main-container {
+    display: grid;
+    grid-template-columns: 400px 1fr;
+    min-height: calc(100vh - 140px);
+    max-height: calc(100vh - 140px);
+}
+
+/* Left Panel */
+.left-panel {
+    background-color: var(--bg-secondary);
+    border-right: 2px solid var(--border);
+    padding: 1.5rem;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: var(--border) transparent;
+}
+
+.left-panel::-webkit-scrollbar {
+    width: 6px;
+}
+
+.left-panel::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.left-panel::-webkit-scrollbar-thumb {
+    background-color: var(--border);
+    border-radius: 3px;
+}
+
+/* Card Styles */
+.info-card, .timeline-card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 2px 8px var(--shadow);
+}
+
+.info-card h2, .timeline-card h2 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.info-card h2 i, .timeline-card h2 i {
+    color: var(--accent-blue);
+    font-size: 1rem;
+}
+
+/* Product Image */
+.product-image {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.product-image img {
+    width: 100%;
+    max-width: 280px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 0.5rem;
+    border: 1px solid var(--border);
+}
+
+/* Product Details */
+.product-details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+}
+
+.detail-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.detail-row:last-child {
+    border-bottom: none;
+}
+
+.detail-row .label {
+    font-weight: 500;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.detail-row .value {
+    font-weight: 400;
+    color: var(--text-primary);
+    font-size: 0.9rem;
+    text-align: right;
+}
+
+.value.hash {
+    font-family: 'Courier New', monospace;
+    font-size: 0.8rem;
+    color: var(--accent-blue);
+}
+
+/* Last Updated */
+.last-updated {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border);
+}
+
+.last-updated i {
+    color: var(--accent-green);
+}
+
+/* Timeline Styles */
+.timeline {
+    position: relative;
+}
+
+.timeline-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+
+.timeline-item:last-child {
+    margin-bottom: 0;
+}
+
+.timeline-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 2;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.timeline-icon:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.timeline-icon.completed {
+    background-color: var(--accent-green);
+    color: white;
+}
+
+.timeline-icon.current {
+    background-color: var(--accent-blue);
+    color: white;
+    animation: pulse 2s infinite;
+}
+
+.timeline-icon.pending {
+    background-color: var(--border);
+    color: var(--text-muted);
+}
+
+.timeline-content {
+    flex: 1;
+    padding-top: 0.25rem;
+}
+
+.timeline-title {
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.25rem;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.timeline-title:hover {
+    color: var(--accent-blue);
+}
+
+.timeline-desc {
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    margin-bottom: 0.25rem;
+}
+
+.timeline-time {
+    color: var(--text-muted);
+    font-size: 0.8rem;
+}
+
+.timeline-hash {
+    color: var(--accent-blue);
+    font-size: 0.75rem;
+    font-family: 'Courier New', monospace;
+    margin-top: 0.25rem;
+}
+
+.timeline-item:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    left: 19px;
+    top: 40px;
+    width: 2px;
+    height: calc(100% + 0.5rem);
+    background-color: var(--border);
+    z-index: 1;
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(0, 113, 206, 0.7); }
+    70% { box-shadow: 0 0 0 10px rgba(0, 113, 206, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(0, 113, 206, 0); }
+}
+
+/* Right Panel - Map */
+.right-panel {
+    background-color: var(--bg-secondary);
+    display: flex;
+    flex-direction: column;
+}
+
+.map-container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.map-header {
+    background-color: var(--bg-card);
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.map-header h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.map-header h3 i {
+    color: var(--accent-blue);
+}
+
+#fullscreenBtn {
+    background-color: var(--accent-blue);
+    color: white;
+    border: none;
+    padding: 0.5rem 0.75rem;
+    border-radius: 0.375rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+}
+
+#fullscreenBtn:hover {
+    background-color: #005bb5;
+    transform: translateY(-1px);
+}
+
+/* Map Styles */
+.map {
+    flex: 1;
+    background-color: var(--bg-card);
+    position: relative;
+    min-height: 400px;
+}
+
+/* Custom Map Pin Icon */
+.map-pin {
+    width: 30px;
+    height: 30px;
+    background-color: var(--accent-blue);
+    border-radius: 50% 50% 50% 0;
+    transform: rotate(-45deg);
+    position: relative;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.map-pin::after {
+    content: '';
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.map-pin.completed {
+    background-color: var(--accent-green);
+}
+
+.map-pin.current {
+    background-color: var(--accent-blue);
+    animation: pulse 2s infinite;
+}
+
+.map-pin.pending {
+    background-color: var(--border);
+}
+
+/* Leaflet Overrides */
+.leaflet-container {
+    background-color: var(--bg-card) !important;
+}
+
+.leaflet-popup-content-wrapper {
+    background-color: var(--bg-card) !important;
+    color: var(--text-primary) !important;
+    border-radius: 0.5rem !important;
+}
+
+.leaflet-popup-content {
+    color: var(--text-primary) !important;
+    font-family: var(--font-primary) !important;
+}
+
+.leaflet-popup-tip {
+    background-color: var(--bg-card) !important;
+}
+
+.leaflet-control-zoom {
+    background-color: var(--bg-card) !important;
+    border: 1px solid var(--border) !important;
+}
+
+.leaflet-control-zoom a {
+    background-color: var(--bg-card) !important;
+    color: var(--text-primary) !important;
+    border-bottom: 1px solid var(--border) !important;
+}
+
+.leaflet-control-zoom a:hover {
+    background-color: var(--bg-hover) !important;
+}
+
+.leaflet-control-attribution {
+    display: none !important;
+}
+
+/* Blockchain Verified Badge */
+.blockchain-badge {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: var(--accent-green);
+    color: white;
+    padding: 0.75rem 1rem;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    box-shadow: 0 4px 12px rgba(0, 208, 132, 0.3);
+    z-index: 1000;
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+}
+
+/* Modal Styles with Scrollbar */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.modal-content {
+    background-color: var(--bg-card);
+    margin: 5% auto;
+    padding: 0;
+    border-radius: 0.75rem;
+    width: 90%;
+    max-width: 600px;
+    max-height: 80vh;
+    position: relative;
+    animation: modalSlideIn 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-header {
+    padding: 2rem 2rem 1rem 2rem;
+    border-bottom: 1px solid var(--border);
+    position: relative;
+    flex-shrink: 0;
+}
+
+.modal-body {
+    padding: 1rem 2rem 2rem 2rem;
+    overflow-y: auto;
+    flex: 1;
+    max-height: calc(80vh - 120px);
+}
+
+/* Custom scrollbar for modal */
+.modal-body::-webkit-scrollbar {
+    width: 8px;
+}
+
+.modal-body::-webkit-scrollbar-track {
+    background-color: var(--bg-secondary);
+    border-radius: 4px;
+}
+
+.modal-body::-webkit-scrollbar-thumb {
+    background-color: var(--border);
+    border-radius: 4px;
+    border: 1px solid var(--bg-card);
+}
+
+.modal-body::-webkit-scrollbar-thumb:hover {
+    background-color: var(--accent-blue);
+}
+
+/* Firefox scrollbar */
+.modal-body {
+    scrollbar-width: thin;
+    scrollbar-color: var(--border) var(--bg-secondary);
+}
+
+@keyframes modalSlideIn {
+    from { transform: translateY(-50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.close {
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--text-secondary);
+    transition: color 0.3s ease;
+    z-index: 10;
+}
+
+.close:hover {
+    color: var(--text-primary);
+}
+
+.modal h2 {
+    color: var(--accent-blue);
+    margin-bottom: 0;
+    font-size: 1.3rem;
+    padding-right: 2rem;
+}
+
+.modal-detail {
+    margin-bottom: 1rem;
+    padding: 0.75rem;
+    background-color: var(--bg-secondary);
+    border-radius: 0.5rem;
+    border-left: 4px solid var(--accent-blue);
+}
+
+.modal-detail h4 {
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+}
+
+.modal-detail p {
+    color: var(--text-secondary);
+    margin-bottom: 0.25rem;
+    font-size: 0.9rem;
+}
+
+.modal-hash {
+    font-family: 'Courier New', monospace;
+    color: var(--accent-blue);
+    font-size: 0.85rem;
+    background-color: var(--bg-primary);
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+    margin-top: 0.5rem;
+    word-break: break-all;
+}
+
+/* Responsive modal */
+@media (max-width: 768px) {
+    .modal-content {
+        width: 95%;
+        margin: 10% auto;
+        max-height: 85vh;
+    }
+    
+    .modal-header {
+        padding: 1.5rem 1.5rem 1rem 1.5rem;
+    }
+    
+    .modal-body {
+        padding: 1rem 1.5rem 1.5rem 1.5rem;
+        max-height: calc(85vh - 100px);
+    }
+    
+    .modal h2 {
+        font-size: 1.1rem;
+    }
+}
+
+/* Fullscreen Mode */
+.fullscreen {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    z-index: 9999 !important;
+    background-color: var(--bg-primary) !important;
+}
+
+.fullscreen .map-header {
+    padding: 1.5rem;
+}
+
+.fullscreen #fullscreenBtn i::before {
+    content: "\f066"; /* compress icon */
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .main-container {
+        grid-template-columns: 350px 1fr;
+    }
+    
+    #productId {
+        width: 250px;
+    }
+}
+
+@media (max-width: 768px) {
+    .header-content {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .main-container {
+        grid-template-columns: 1fr;
+        grid-template-rows: 400px 1fr;
+    }
+    
+    .left-panel {
+        border-right: none;
+        border-bottom: 2px solid var(--border);
+        max-height: 400px;
+    }
+    
+    #productId {
+        width: 200px;
+    }
+    
+    .blockchain-badge {
+        bottom: 10px;
+        right: 10px;
+        padding: 0.5rem 0.75rem;
+        font-size: 0.8rem;
+    }
+}
+
+/* Loading Animation */
+.loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    color: var(--text-secondary);
+}
+
+.loading::after {
+    content: '';
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--border);
+    border-top: 2px solid var(--accent-blue);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-left: 10px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
